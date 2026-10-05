@@ -4,24 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>محاكي تعدين العملات الرقمية التجريبي</title>
-    <!-- تم تبسيط وتضمين كود محاكي التعدين واجهات الاستخدام هنا -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- للاطلاع على الكود البرمجي الكامل والوظائف المحدثة، يرجى مراجعة مستودع المشروع أو التحديثات البرمجية المرفقة -->
-</body>
-</html>
 
     <div class="container">
+        <!-- القسم الرئيسي والشعار -->
         <header class="main-header">
             <div class="logo">⚡ CryptoMine Sim</div>
             <h1>منصة محاكاة التعدين التجريبية</h1>
             <p class="demo-badge">بيئة تجريبية واختبارية فقط</p>
         </header>
 
+        <!-- لوحة التحكم الرئيسية -->
         <div class="dashboard-grid">
-            <!-- إعدادات التعدين -->
+            
+            <!-- بطاقة التحكم والعملات -->
             <div class="card">
                 <h2>إعدادات التعدين</h2>
+                
                 <div class="form-group">
                     <label for="crypto-select">اختر العملة المراد محاكاة تعدينها:</label>
                     <select id="crypto-select">
@@ -31,20 +32,23 @@
                         <option value="litecoin">ليتكوين (LTC)</option>
                     </select>
                 </div>
+
                 <div class="price-display">
                     <span>السعر الحالي:</span>
                     <span id="current-price">جاري التحميل...</span>
                     <span class="live-indicator">● مباشر</span>
                 </div>
+
                 <div class="control-buttons">
                     <button id="btn-start" class="btn btn-success">ابدأ التعدين</button>
                     <button id="btn-stop" class="btn btn-danger" disabled>إيقاف مؤقت</button>
                 </div>
             </div>
 
-            <!-- مؤشرات الأداء -->
+            <!-- بطاقة الإحصائيات والأرباح -->
             <div class="card">
                 <h2>مؤشرات الأداء والأرباح</h2>
+                
                 <div class="hashrate-section">
                     <div class="info-row">
                         <span>قوة التعدين الحالية:</span>
@@ -54,40 +58,30 @@
                         <div id="mining-progress" class="progress-bar"></div>
                     </div>
                 </div>
+
                 <div class="stats-grid">
                     <div class="stat-box">
                         <h3>الأرباح الحالية (الجلسة)</h3>
                         <p id="session-crypto">0.00000000</p>
                         <span id="session-usd" class="usd-value">$0.00</span>
                     </div>
-                    <div class="stat-box">
+                    <div class="stat-box animate-pulse">
                         <h3>إجمالي الأرباح المتراكمة</h3>
                         <p id="total-crypto">0.00000000</p>
                         <span id="total-usd" class="usd-value">$0.00</span>
                     </div>
                 </div>
             </div>
+
         </div>
 
-        <!-- قسم Web3 والمحفظة الحقيقي -->
-        <div class="card web3-section">
-            <h2>الاتصال بمحفظة Web3 (MetaMask)</h2>
-            <div class="web3-controls">
-                <button id="btn-connect" class="btn btn-primary">ربط محفظة MetaMask</button>
-                <div id="wallet-info" style="display: none; margin-top: 15px;">
-                    <p><strong>عنوان المحفظة المتصلة:</strong> <span id="user-address">0x...</span></p>
-                    <p><strong>رصيدك الأصلي في إيثيريوم (ETH):</strong> <span id="user-eth-balance" style="color: #38bdf8; font-weight: bold;">0.0000</span> ETH</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- سحب الأرباح -->
+        <!-- قسم خيارات سحب الأرباح التجريبي -->
         <div class="card withdraw-section">
-            <h2>طلب سحب الأرباح المحاكاتية</h2>
+            <h2>طلب سحب الأرباح (تجريبي)</h2>
             <form id="withdraw-form" onsubmit="return false;">
                 <div class="form-group">
-                    <label for="wallet-address">عنوان محفظة السحب:</label>
-                    <input type="text" id="wallet-address" placeholder="يرجى الاتصال بـ MetaMask أو إدخال العنوان يدوياً" required>
+                    <label for="wallet-address">عنوان المحفظة المرتبطة:</label>
+                    <input type="text" id="wallet-address" placeholder="أدخل عنوان المحفظة الخاص بك (مثال: 0x... أو 1A...)" required>
                 </div>
                 <div class="form-group">
                     <label for="network-select">شبكة السحب:</label>
@@ -102,5 +96,60 @@
             <div id="withdraw-message" class="alert-message"></div>
         </div>
 
-        <!-- السجل -->
+        <!-- سجل العمليات -->
         <div class="card">
+            <h2>سجل عمليات التعدين والتحديثات</h2>
+            <div class="table-responsive">
+                <table id="logs-table">
+                    <thead>
+                        <tr>
+                            <th>الوقت</th>
+                            <th>الحدث / العملية</th>
+                            <th>الكمية المضافة</th>
+                            <th>القيمة بالدولار</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- تُضاف الصفوف ديناميكياً بواسطة JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- قسم الاتصال بمحفظة Web3 واستعراض الرصيد الحقيقي -->
+<div class="card web3-section">
+    <h2>الاتصال بمحفظة Web3 (MetaMask)</h2>
+    <div class="web3-controls">
+        <button id="btn-connect" class="btn btn-primary">ربط محفظة MetaMask</button>
+        <div id="wallet-info" style="display: none; margin-top: 15px;">
+            <p><strong>عنوان المحفظة المتصلة:</strong> <span id="user-address">0x...</span></p>
+            <p><strong>رصيدك الأصلي في إيثيريوم (ETH):</strong> <span id="user-eth-balance" style="color: #38bdf8; font-weight: bold;">0.0000</span> ETH</p>
+        </div>
+    </div>
+</div>
+
+<!-- قسم خيارات سحب الأرباح التجريبي (محدث ليعتمد على عنوان MetaMask المتصل) -->
+<div class="card withdraw-section">
+    <h2>طلب سحب الأرباح المحاكاتية</h2>
+    <form id="withdraw-form" onsubmit="return false;">
+        <div class="form-group">
+            <label for="wallet-address">عنوان محفظة السحب:</label>
+            <input type="text" id="wallet-address" placeholder="يرجى الاتصال بـ MetaMask أو إدخال العنوان يدوياً" required>
+        </div>
+        <div class="form-group">
+            <label for="network-select">شبكة السحب:</label>
+            <select id="network-select">
+                <option value="mainnet">الشبكة الرئيسية للعملة (Mainnet)</option>
+                <option value="bep20">شبكة Binance Smart Chain (BEP20)</option>
+                <option value="erc20">شبكة Ethereum (ERC20)</option>
+            </select>
+        </div>
+        <button type="submit" id="btn-withdraw" class="btn btn-primary">تأكيد السحب التجريبي</button>
+    </form>
+    <div id="withdraw-message" class="alert-message"></div>
+</div>

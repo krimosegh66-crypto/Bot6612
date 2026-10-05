@@ -1,0 +1,282 @@
+/* إعدادات الخطوط والألوان العامة الداكنة */
+@import url('https://googleapis.com');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+    color: #f8fafc;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* الترويسة والشعارات */
+.main-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #38bdf8, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.demo-badge {
+    display: inline-block;
+    background-color: #ef4444;
+    color: white;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+/* تصميم البطاقات الواجهة والشبكة */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: #38bdf8;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+/* القوائم وحقول الإدخال */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+select:focus, input[type="text"]:focus {
+    border-color: #a855f7;
+}
+
+/* عرض الأسعار والشارة الخضراء */
+.price-display {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.live-indicator {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    animation: pulse 2s infinite;
+}
+
+/* الأزرار وتأثيراتها */
+.control-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-success { background-color: #22c55e; color: white; }
+.btn-success:hover:not(:disabled) { background-color: #16a34a; transform: translateY(-2px); }
+
+.btn-danger { background-color: #ef4444; color: white; }
+.btn-danger:hover:not(:disabled) { background-color: #dc2626; transform: translateY(-2px); }
+
+.btn-primary { background: linear-gradient(90deg, #38bdf8, #a855f7); color: white; }
+.btn-primary:hover:not(:disabled) { opacity: 0.9; transform: translateY(-2px); }
+
+/* شريط التقدم وقوة التعدين */
+.hashrate-section {
+    margin-bottom: 25px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.progress-bar-container {
+    background: #0f172a;
+    border-radius: 10px;
+    height: 12px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #38bdf8, #a855f7);
+    transition: width 0.4s ease;
+}
+
+.progress-bar.active {
+    animation: progress-animation 2s linear infinite;
+    background-size: 30px 30px;
+    background-image: linear-gradient(45deg, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+}
+
+/* صناديق الأرقام والأرباح */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.stat-box {
+    background: rgba(15, 23, 42, 0.4);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.stat-box h3 {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-bottom: 8px;
+}
+
+.stat-box p {
+    font-size: 1.1rem;
+    font-weight: 700;
+    word-break: break-all;
+}
+
+.usd-value {
+    font-size: 0.85rem;
+    color: #22c55e;
+    display: block;
+    margin-top: 4px;
+}
+
+/* الجداول وسجل العمليات */
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: right;
+    font-size: 0.9rem;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #334155;
+}
+
+th {
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+/* التنبيهات */
+.alert-message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    display: none;
+    font-size: 0.9rem;
+}
+
+.alert-success { background: rgba(34, 197, 94, 0.2); color: #22c55e; border: 1px solid #22c55e; }
+
+/* الحركات */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes progress-animation {
+    from { background-position: 0 0; }
+    to { background-position: 30px 0; }
+}
+
+/* التجاوب مع الهواتف المحمولة */
+@media (max-width: 768px) {
+    body { padding: 10px; }
+    .dashboard-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .control-buttons { flex-direction: column; }
+}
+/* تنسيقات قسم Web3 الجديد */
+.web3-section {
+    border: 1px solid rgba(168, 85, 247, 0.4) !important; /* تمييز بطاقة المحفظة بإطار بنفسجي */
+}
+.web3-controls p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    background: rgba(15, 23, 42, 0.5);
+    padding: 10px;
+    border-radius: 8px;
+    word-break: break-all;
+}
